@@ -1,0 +1,20 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: licomp
+Upstream-Contact: Henrik Sandklef <hesa@sandklef.com>
+Source: https://github.com/hesa/licomp
+
+Files: hermine-data/**
+Copyright: 2024 Hermine-team <hermine@inno3.fr>
+License:  ODbL-1.0
+
+Files: .gitignore
+Copyright: Henrik Sandklef
+License: GPL-3.0-or-later
+
+Files: README*
+Copyright: Henrik Sandklef
+License: GPL-3.0-or-later
+
+Files: test/data/extended-license-matrix.json
+Copyright: Henrik Sandklef
+License: GPL-3.0-or-later
