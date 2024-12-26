@@ -3,13 +3,32 @@
 This is a ***POC (Proof Of Concept)*** project to show that it is possible
 to manage compatibility between licenses in a new way.
 
-So far we have seen two approaches to providing license compatibility data:
+# Existing approaches
+
+There are two approaches of providing license compatibility data:
 
 * graph
 
 * matrix
 
-TODO: usecase, provisioning, modified
+## Missing context
+
+Compatiblity between two licenses, at least when it comes to the Hermione project, is defined as
+
+* can I use a component under license B
+* in my program which I want to release under license A
+
+The answer to this depends on the context, such as:
+
+* Usecase
+
+* Provisioning
+
+* Modification
+
+For more information about the context, see [Licomp](https://github.com/hesa/licomp)
+
+## Hermione goals
 
 The goal with Hermione was (perhaps even is) to switch from looking at
 license compatibility to looking at compatibility between license
@@ -60,6 +79,8 @@ clause matrix, of size 30 * 30 = 900. When using colors (yes=green,
 no=red, else=yellow) we noticed that most of the values are yes (as in
 the licenses are compatible). We decided to take yes as the deafult
 and somehow write down the no and so on.
+
+The clauses can be found in [clause_matrix.p](https://github.com/hesa/hermione/blob/main/scripts/clause_matrix.py)
 
 #### No further restrictions
 
@@ -144,10 +165,27 @@ When writing an expression for the compatiblitiy between two clauses you can use
         "outbound_expression": "inbound_license has not obligation \"Strong Copyleft\" or inbound_license same as outbound_license"
         "restriction": True
 
-### Restricted
+### Restriction
+
+This is used to say whether or not a clause is a restriction (typically to GPL's no further restriction clause):
+
+* `False` - is NOT a restriction
+
+* `True` - is a restriction
 
 ## Result
 
+A license compatibility matrix per each combination of:
+
+* provisining case
+
+* modification
+
+is created by looping thrugh the licenses and checking the clauses. It does take quite a while to produce these license compatibility matrices but once done they can be used quickly by tools such as [flict](https://github.com/vinland-technology/flict) and [licomp-hermione](https://github.com/hesa/licomp-hermione).
 
 
-TODO: we create a matrix
+To create the license compatibility mnatrices:
+
+```
+./scripts/hermine_data.py
+```
