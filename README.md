@@ -165,7 +165,13 @@ When writing an expression for the compatiblitiy between two clauses you can use
         "outbound_expression": "inbound_license has not obligation \"Strong Copyleft\" or inbound_license same as outbound_license"
         "restriction": True
 
-### Restricted
+### Restriction
+
+This is used to say whether or not a clause is a restriction (typically to GPL's no further restriction clause):
+
+* `False` - is NOT a restriction
+
+* `True` - is a restriction
 
 ## Result
 
